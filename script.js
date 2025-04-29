@@ -55,6 +55,11 @@ class linkedList {
     newNode.next = current;
     previous.next = newNode;
   }
+
+  deleteFromStart(){
+    if(!this.head) return;
+    this.head = this.head.next;
+  }
 }
 
 const list = new linkedList();
@@ -66,6 +71,7 @@ list.add(40);
 list.add(50);
 list.prepend(10);
 list.insertAt(60,3);
+list.deleteFromStart()
 
 
 list.print();

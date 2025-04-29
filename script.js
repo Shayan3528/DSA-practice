@@ -1,18 +1,47 @@
-function reverseString(a) {
-let s = a.split('');
-  let left = 0;
-  let right = s.length - 1;
-  
-  while (left < right) {
-    let temp = s[left];
-    s[left] = s[right];
-    s[right] =temp;
-    left++;
-    right--;
+
+class Node{
+  constructor(value){
+    this.data = value ;
+    this.next= null;
   }
-  
-  return s;
 }
 
-const a = reverseString("ABCDE");
-console.log(a);
+class linkedList{
+  constructor(){
+    this.head = null;
+  }
+
+  add(data){
+    const newNode = new Node(data);
+    if(this.head === null){
+      this.head = newNode;
+      return;
+    }
+    let current = this.head;
+    while(current.next){
+      current = current.next;
+    }
+    current.next = newNode;
+  }
+
+  print(){
+    let current = this.head;
+    while(current){
+      console.log(current.data);
+      current = current.next;
+    }
+  }
+
+}
+
+
+const list = new linkedList();
+
+list.add(10);
+list.add(20);
+list.add(30);
+list.add(40);
+list.add(50);
+
+list.print();
+

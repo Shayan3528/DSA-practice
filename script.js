@@ -1,21 +1,31 @@
-const arr = [];
 
-function isPrime() {
-  for (let n = 2; n <= 100; n++) {
-    let isPrime = true;
-    for (let i = 2; i <= Math.floor(Math.sqrt(n)); i++) {
-      if (n % i === 0) {
-        isPrime = false;
-        break;
-      }
-    }
-    if (isPrime) {
-      arr.push(n);
-    }
-  }
+/// sieve  of Eratosthenes for  prime number 
 
-  return arr;
+function isPrime(n){
+    let primes = new Array(n+1).fill(true);
+
+    primes[0]= primes[1]=false;
+
+    for(let i = 2;i*i<=n;i++){
+
+        if(primes[i]){
+            for(let j = i*i;j<=n;j+=i){
+                primes[j] = false;
+            }
+        }
+    }
+
+    let result = [];
+    for(let i = 2;i<=n;i++){
+        if(primes[i]){
+            result.push(i);
+        }
+    }
+
+    return result;
+
 }
 
-isPrime();
-console.log(arr);
+isPrime(100);
+
+console.log(result);

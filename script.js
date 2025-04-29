@@ -1,16 +1,18 @@
-function reverseString(s) {
+function reverseString(a) {
+let s = a.split('');
   let left = 0;
   let right = s.length - 1;
-  let curr = [];
-  while (left <= right) {
-    curr[left] = s[right];
-    curr[right] = s[left];
+  
+  while (left < right) {
+    let temp = s[left];
+    s[left] = s[right];
+    s[right] =temp;
     left++;
     right--;
   }
-  s = curr.join("");
+  
   return s;
 }
 
-const a = reverseString("hello");
+const a = reverseString("ABCDE");
 console.log(a);

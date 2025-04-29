@@ -56,9 +56,20 @@ class linkedList {
     previous.next = newNode;
   }
 
-  deleteFromStart(){
+  deleteFromEnd(){
     if(!this.head) return;
-    this.head = this.head.next;
+    if(!this.head.next) {
+      this.head = null;
+      return;
+
+    }
+
+    let current = this.head;
+    while(current.next.next){
+      current = current.next;
+    }
+    current.next = null;
+
   }
 }
 
@@ -69,9 +80,12 @@ list.add(20);
 list.add(30);
 list.add(40);
 list.add(50);
-list.prepend(10);
-list.insertAt(60,3);
-list.deleteFromStart()
+// list.prepend(10);
+// list.insertAt(60,3);
+// list.deleteFromStart()
+
+list.deleteFromEnd();
+
 
 
 list.print();

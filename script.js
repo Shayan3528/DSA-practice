@@ -1,31 +1,16 @@
-
-/// sieve  of Eratosthenes for  prime number 
-
-function isPrime(n){
-    let primes = new Array(n+1).fill(true);
-
-    primes[0]= primes[1]=false;
-
-    for(let i = 2;i*i<=n;i++){
-
-        if(primes[i]){
-            for(let j = i*i;j<=n;j+=i){
-                primes[j] = false;
-            }
-        }
-    }
-
-    let result = [];
-    for(let i = 2;i<=n;i++){
-        if(primes[i]){
-            result.push(i);
-        }
-    }
-
-    return result;
-
+function reverseString(s) {
+  let left = 0;
+  let right = s.length - 1;
+  let curr = [];
+  while (left <= right) {
+    curr[left] = s[right];
+    curr[right] = s[left];
+    left++;
+    right--;
+  }
+  s = curr.join("");
+  return s;
 }
 
-isPrime(100);
-
-console.log(result);
+const a = reverseString("hello");
+console.log(a);

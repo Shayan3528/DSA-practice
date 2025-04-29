@@ -36,15 +36,36 @@ class linkedList {
     newNode.next = this.head;
     this.head = newNode;
   }
+
+  insertAt(data,index){
+    
+    if(index===0){ 
+      this.prepend(data);
+    }
+    const newNode = new Node(data);
+    let current = this.head;
+    let count = 0;
+    let previous;
+
+    while(count < index && current){
+      previous = current;
+      current = current.next;
+      count++;
+    }
+    newNode.next = current;
+    previous.next = newNode;
+  }
 }
 
 const list = new linkedList();
 
-list.add(10);
+
 list.add(20);
 list.add(30);
 list.add(40);
 list.add(50);
-list.prepend(4);
-list.prepend(100000);
+list.prepend(10);
+list.insertAt(60,3);
+
+
 list.print();
